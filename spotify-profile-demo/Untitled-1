@@ -1,0 +1,21 @@
+curl -X POST "https://accounts.spotify.com/api/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "grant_type=client_credentials&client_id=5835805e22a345948373bd954162324c&client_secret=825844fb5de94f0986519911292d4e41"
+
+
+ACCESS_TOKEN=$(curl -s -X POST 'https://accounts.spotify.com/api/token' -H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET" \
+ | jq -r '.access_token')
+
+{"access_token":"BQDsRrruyROI5--ceTDkKq3sSDm1byrhEvjESGkZcvo6k4sWZs4JK6NrnJq6IMa_yUjC05sR4RFgpK3rvrWZnxG4xCzdJVN43n-PRp6LwplDmh70od0","token_type":"Bearer","expires_in":3600}
+
+curl --request GET \
+  --url 'https://api.spotify.com/v1/tracks?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B' \
+  --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
+
+
+curl --request GET \
+  --url https://api.spotify.com/v1/audio-analysis/7EsEklut7HmW49n9Ebhtqz \
+  --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
+
+https://open.spotify.com/track/7EsEklut7HmW49n9Ebhtqz?si=a922fbfb2c44497b
